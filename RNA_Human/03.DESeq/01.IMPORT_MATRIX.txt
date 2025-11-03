@@ -1,0 +1,2 @@
+/home/joonho345/3_RNA/RNA_Human/script/00.Matrix_script.R
+/home/joonho345/3_RNA/RNA_Human/script/00.Subgrouping_script.R
