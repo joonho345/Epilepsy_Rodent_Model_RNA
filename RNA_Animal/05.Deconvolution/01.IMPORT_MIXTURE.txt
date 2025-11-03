@@ -1,0 +1,3 @@
+/home/joonho345/3_RNA/RNA_Animal/script/00.Matrix_script.R
+/home/joonho345/3_RNA/RNA_Animal/script/00.Subgrouping_script.R
+### MuSiC: cell type proportions cannot be estimated with TPM as the input. ###
