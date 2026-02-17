@@ -2,7 +2,7 @@
 #$ -cwd
 #$ -S /bin/bash
 
-ConfigFile="/home/joonho345/3_RNA/script/Scratch_settings.sh"
+ConfigFile="/home/joonho345/1_Epilepsy_RNA/script/Scratch_settings.sh"
 source ${ConfigFile}
 
 #ConfigFile=$1

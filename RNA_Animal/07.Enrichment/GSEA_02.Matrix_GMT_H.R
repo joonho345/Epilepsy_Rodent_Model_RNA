@@ -1,11 +1,4 @@
 gene_sets <- list(
-  M_gene_set_ERK_GO0007265_122 = M_gene_set_ERK_GO0007265_122,
-  M_gene_set_ERK_GO0051057_94 = M_gene_set_ERK_GO0051057_94,
-  M_gene_set_ERK_GO0051058_64 = M_gene_set_ERK_GO0051058_64,
-  M_gene_set_ERK_GO0070372_335 = M_gene_set_ERK_GO0070372_335,
-  M_gene_set_ERK_GO0070373_83 = M_gene_set_ERK_GO0070373_83,
-  M_gene_set_ERK_GO0070374_227 = M_gene_set_ERK_GO0070374_227,
-  M_gene_set_ERK = M_gene_set_ERK,
   M_gene_set_GG_GO0014004_16 = M_gene_set_GG_GO0014004_16,
   M_gene_set_GG_GO0014014_59 = M_gene_set_GG_GO0014014_59,
   M_gene_set_GG_GO0014015_94 = M_gene_set_GG_GO0014015_94,
@@ -28,6 +21,8 @@ gene_sets <- list(
   M_gene_set_NG_GO0007406_16 = M_gene_set_NG_GO0007406_16,
   M_gene_set_NG_GO0050768_163 = M_gene_set_NG_GO0050768_163, 
   M_gene_set_NG_GO0050769_331 = M_gene_set_NG_GO0050769_331,
+  M_gene_set_NG_GO0050772_85 = M_gene_set_NG_GO0050772_85,
+  M_gene_set_NG_GO0050771_56 = M_gene_set_NG_GO0050771_56,
   M_gene_set_NG = M_gene_set_NG,
   M_gene_set_NI_GO0001774_49 = M_gene_set_NI_GO0001774_49, 
   M_gene_set_NI_GO0006954_882 = M_gene_set_NI_GO0006954_882,
@@ -50,31 +45,11 @@ gene_sets <- list(
   M_gene_set_TNF_GO0010804_27 = M_gene_set_TNF_GO0010804_27,
   M_gene_set_TNF_GO0033209_103 = M_gene_set_TNF_GO0033209_103,
   M_gene_set_TNF_GO1903265_11 = M_gene_set_TNF_GO1903265_11,
-  M_gene_set_TNF = M_gene_set_TNF,
-  M_gene_set_Ionotropic_GABA_Receptors = M_gene_set_Ionotropic_GABA_Receptors,
-  M_gene_set_Ionotropic_Glutamate_AMPA_Receptors = M_gene_set_Ionotropic_Glutamate_AMPA_Receptors,
-  M_gene_set_Ionotropic_Glutamate_DELTA_Receptors = M_gene_set_Ionotropic_Glutamate_DELTA_Receptors,
-  M_gene_set_Ionotropic_Glutamate_KAINATE_Receptors = M_gene_set_Ionotropic_Glutamate_KAINATE_Receptors,
-  M_gene_set_Ionotropic_Glutamate_NMDA_Receptors = M_gene_set_Ionotropic_Glutamate_NMDA_Receptors, 
-  M_gene_set_Metabotropic_GABA_Receptors = M_gene_set_Metabotropic_GABA_Receptors,
-  M_gene_set_Metabotropic_Glutamate_Receptors = M_gene_set_Metabotropic_Glutamate_Receptors,
-  M_gene_set_Voltage_Gated_Calcium_Channels = M_gene_set_Voltage_Gated_Calcium_Channels,
-  M_gene_set_Voltage_Gated_Potassium_Channels = M_gene_set_Voltage_Gated_Potassium_Channels,
-  M_gene_set_Voltage_Gated_Sodium_Channels = M_gene_set_Voltage_Gated_Sodium_Channels,
-  M_gene_set_NG_negative_regulation_of_axonogenesis = M_gene_set_NG_negative_regulation_of_axonogenesis,
-  M_gene_set_NG_negative_regulation_of_dendrite_morphogenesis = M_gene_set_NG_negative_regulation_of_dendrite_morphogenesis,
-  M_gene_set_NG_negative_regulation_of_gliogenesis = M_gene_set_NG_negative_regulation_of_gliogenesis,
-  M_gene_set_NG_negative_regulation_of_neuroblast_proliferation = M_gene_set_NG_negative_regulation_of_neuroblast_proliferation,
-  M_gene_set_NG_positive_regulation_of_axonogenesis = M_gene_set_NG_positive_regulation_of_axonogenesis,
-  M_gene_set_NG_positive_regulation_of_dendrite_morphogenesis = M_gene_set_NG_positive_regulation_of_dendrite_morphogenesis,
-  M_gene_set_NG_positive_regulation_of_gliogenesis = M_gene_set_NG_positive_regulation_of_gliogenesis,
-  M_gene_set_NG_positive_regulation_of_neuroblast_proliferation = M_gene_set_NG_positive_regulation_of_neuroblast_proliferation,
-  M_gene_set_NG_regulation_of_neuronal_synaptic_plasticity = M_gene_set_NG_regulation_of_neuronal_synaptic_plasticity
+  M_gene_set_TNF = M_gene_set_TNF
 )
 
-
 # Define the output GMT file path
-gmt_file <- "/home/joonho345/3_RNA/RNA_Animal/07.Enrichment/GSEA_02.Matrix_GSEA/output_gene_sets_M.gmt"
+gmt_file <- "/home/joonho345/1_Epilepsy_RNA/RNA_Animal/08.Enrichment/GSEA_02.Matrix_GSEA/output_gene_sets_M_new.gmt"
 
 # Open a file connection for writing
 file_conn <- file(gmt_file, "w")
@@ -97,13 +72,6 @@ close(file_conn)
 
 ######################################################
 gene_sets <- list(
-  R_gene_set_ERK_GO0007265_122 = R_gene_set_ERK_GO0007265_122,
-  R_gene_set_ERK_GO0051057_94 = R_gene_set_ERK_GO0051057_94,
-  R_gene_set_ERK_GO0051058_64 = R_gene_set_ERK_GO0051058_64,
-  R_gene_set_ERK_GO0070372_335 = R_gene_set_ERK_GO0070372_335,
-  R_gene_set_ERK_GO0070373_83 = R_gene_set_ERK_GO0070373_83,
-  R_gene_set_ERK_GO0070374_227 = R_gene_set_ERK_GO0070374_227,
-  R_gene_set_ERK = R_gene_set_ERK,
   R_gene_set_GG_GO0014004_16 = R_gene_set_GG_GO0014004_16,
   R_gene_set_GG_GO0014014_59 = R_gene_set_GG_GO0014014_59,
   R_gene_set_GG_GO0014015_94 = R_gene_set_GG_GO0014015_94,
@@ -126,6 +94,8 @@ gene_sets <- list(
   R_gene_set_NG_GO0007406_16 = R_gene_set_NG_GO0007406_16,
   R_gene_set_NG_GO0050768_163 = R_gene_set_NG_GO0050768_163, 
   R_gene_set_NG_GO0050769_331 = R_gene_set_NG_GO0050769_331,
+  R_gene_set_NG_GO0050772_85 = R_gene_set_NG_GO0050772_85,
+  R_gene_set_NG_GO0050771_56 = R_gene_set_NG_GO0050771_56,
   R_gene_set_NG = R_gene_set_NG,
   R_gene_set_NI_GO0001774_49 = R_gene_set_NI_GO0001774_49, 
   R_gene_set_NI_GO0006954_882 = R_gene_set_NI_GO0006954_882,
@@ -148,31 +118,12 @@ gene_sets <- list(
   R_gene_set_TNF_GO0010804_27 = R_gene_set_TNF_GO0010804_27,
   R_gene_set_TNF_GO0033209_103 = R_gene_set_TNF_GO0033209_103,
   R_gene_set_TNF_GO1903265_11 = R_gene_set_TNF_GO1903265_11,
-  R_gene_set_TNF = R_gene_set_TNF,
-  R_gene_set_Ionotropic_GABA_Receptors = R_gene_set_Ionotropic_GABA_Receptors,
-  R_gene_set_Ionotropic_Glutamate_AMPA_Receptors = R_gene_set_Ionotropic_Glutamate_AMPA_Receptors,
-  R_gene_set_Ionotropic_Glutamate_DELTA_Receptors = R_gene_set_Ionotropic_Glutamate_DELTA_Receptors,
-  R_gene_set_Ionotropic_Glutamate_KAINATE_Receptors = R_gene_set_Ionotropic_Glutamate_KAINATE_Receptors,
-  R_gene_set_Ionotropic_Glutamate_NMDA_Receptors = R_gene_set_Ionotropic_Glutamate_NMDA_Receptors, 
-  R_gene_set_Metabotropic_GABA_Receptors = R_gene_set_Metabotropic_GABA_Receptors,
-  R_gene_set_Metabotropic_Glutamate_Receptors = R_gene_set_Metabotropic_Glutamate_Receptors,
-  R_gene_set_Voltage_Gated_Calcium_Channels = R_gene_set_Voltage_Gated_Calcium_Channels,
-  R_gene_set_Voltage_Gated_Potassium_Channels = R_gene_set_Voltage_Gated_Potassium_Channels,
-  R_gene_set_Voltage_Gated_Sodium_Channels = R_gene_set_Voltage_Gated_Sodium_Channels,
-  R_gene_set_NG_negative_regulation_of_axonogenesis = R_gene_set_NG_negative_regulation_of_axonogenesis,
-  R_gene_set_NG_negative_regulation_of_dendrite_morphogenesis = R_gene_set_NG_negative_regulation_of_dendrite_morphogenesis,
-  R_gene_set_NG_negative_regulation_of_gliogenesis = R_gene_set_NG_negative_regulation_of_gliogenesis,
-  R_gene_set_NG_negative_regulation_of_neuroblast_proliferation = R_gene_set_NG_negative_regulation_of_neuroblast_proliferation,
-  R_gene_set_NG_positive_regulation_of_axonogenesis = R_gene_set_NG_positive_regulation_of_axonogenesis,
-  R_gene_set_NG_positive_regulation_of_dendrite_morphogenesis = R_gene_set_NG_positive_regulation_of_dendrite_morphogenesis,
-  R_gene_set_NG_positive_regulation_of_gliogenesis = R_gene_set_NG_positive_regulation_of_gliogenesis,
-  R_gene_set_NG_positive_regulation_of_neuroblast_proliferation = R_gene_set_NG_positive_regulation_of_neuroblast_proliferation,
-  R_gene_set_NG_regulation_of_neuronal_synaptic_plasticity = R_gene_set_NG_regulation_of_neuronal_synaptic_plasticity
+  R_gene_set_TNF = R_gene_set_TNF
 )
 
 
 # Define the output GMT file path
-gmt_file <- "/home/joonho345/3_RNA/RNA_Animal/07.Enrichment/GSEA_02.Matrix_GSEA/output_gene_sets_R.gmt"
+gmt_file <- "/home/joonho345/1_Epilepsy_RNA/RNA_Animal/08.Enrichment/GSEA_02.Matrix_GSEA/output_gene_sets_R_new.gmt"
 
 # Open a file connection for writing
 file_conn <- file(gmt_file, "w")

@@ -2,7 +2,7 @@ library(dplyr)
 
 
 #### coldata ####
-coldata_all <- read.csv("/home/joonho345/3_RNA/RNA_Animal/Raw_Data/Animal_sheet_FTP.csv", header = TRUE) # total 349
+coldata_all <- read.csv("/data/project/1_Epilepsy_RNA/RNA_Animal/Raw_Data/Animal_sheet_FTP.csv", header = TRUE) # total 349
 coldata_M <- coldata_all %>% filter(Species == "Musmusculus") # M 277
 coldata_R <- coldata_all %>% filter(Species == "Rattusnorvegicus") # R 72
 rownames(coldata_M) <- coldata_M$Run
@@ -11,30 +11,14 @@ coldata_df_M <- as.data.frame(coldata_M, stringsAsFactors = FALSE)
 coldata_df_R <- as.data.frame(coldata_R, stringsAsFactors = FALSE)
 
 coldata_matrix_M <- as.matrix(coldata_df_M)
-write.table(coldata_matrix_M, file = "/home/joonho345/3_RNA/RNA_Animal/02.Quantification/filtered_coldata_M.txt",
+write.table(coldata_matrix_M, file = "/home/joonho345/1_Epilepsy_RNA/RNA_Animal/02.Quantification/filtered_coldata_M.txt",
             sep = "\t", row.names = TRUE, col.names = TRUE, quote = FALSE)
 coldata_matrix_R <- as.matrix(coldata_df_R)
-write.table(coldata_matrix_R, file = "/home/joonho345/3_RNA/RNA_Animal/02.Quantification/filtered_coldata_R.txt",
+write.table(coldata_matrix_R, file = "/home/joonho345/1_Epilepsy_RNA/RNA_Animal/02.Quantification/filtered_coldata_R.txt",
             sep = "\t", row.names = TRUE, col.names = TRUE, quote = FALSE)
 
-#### DESeq_coldata_1 ####
-DESeq_coldata_all <- read.csv("/home/joonho345/3_RNA/RNA_Animal/Raw_Data/Animal_sheet_FTP_1.csv", header = TRUE) # total 349
-DESeq_coldata_M <- DESeq_coldata_all %>% filter(Species == "Musmusculus")
-DESeq_coldata_R <- DESeq_coldata_all %>% filter(Species == "Rattusnorvegicus")
-rownames(DESeq_coldata_M) <- DESeq_coldata_M$Group
-rownames(DESeq_coldata_R) <- DESeq_coldata_R$Group
-DESeq_coldata_df_M <- as.data.frame(DESeq_coldata_M, stringsAsFactors = FALSE)
-DESeq_coldata_df_R <- as.data.frame(DESeq_coldata_R, stringsAsFactors = FALSE)
-
-DESeq_coldata_matrix_M <- as.matrix(DESeq_coldata_df_M)
-write.table(DESeq_coldata_matrix_M, file = "/home/joonho345/3_RNA/RNA_Animal/03.DESeq/DESeq_coldata_1_M.txt",
-            sep = "\t", row.names = TRUE, col.names = TRUE, quote = FALSE)
-DESeq_coldata_matrix_R <- as.matrix(DESeq_coldata_df_R)
-write.table(DESeq_coldata_matrix_R, file = "/home/joonho345/3_RNA/RNA_Animal/03.DESeq/DESeq_coldata_1_R.txt",
-            sep = "\t", row.names = TRUE, col.names = TRUE, quote = FALSE)
-
-#### DESeq_coldata_2 ####
-DESeq_coldata_all <- read.csv("/home/joonho345/3_RNA/RNA_Animal/Raw_Data/Animal_sheet_FTP_2.csv", header = TRUE) # total 349
+#### DESeq_coldata_3 ####
+DESeq_coldata_all <- read.csv("/data/project/1_Epilepsy_RNA/RNA_Animal/Raw_Data/Animal_sheet_FTP_3.csv", header = TRUE) # total 349
 DESeq_coldata_M <- DESeq_coldata_all %>% filter(Species == "M")
 DESeq_coldata_R <- DESeq_coldata_all %>% filter(Species == "R")
 rownames(DESeq_coldata_M) <- DESeq_coldata_M$Group
@@ -43,17 +27,17 @@ DESeq_coldata_df_M <- as.data.frame(DESeq_coldata_M, stringsAsFactors = FALSE)
 DESeq_coldata_df_R <- as.data.frame(DESeq_coldata_R, stringsAsFactors = FALSE)
 
 DESeq_coldata_matrix_M <- as.matrix(DESeq_coldata_df_M)
-write.table(DESeq_coldata_matrix_M, file = "/home/joonho345/3_RNA/RNA_Animal/03.DESeq_2/DESeq_coldata_2_M.txt",
+write.table(DESeq_coldata_matrix_M, file = "/home/joonho345/1_Epilepsy_RNA/RNA_Animal/05.DESeq/DESeq_coldata_3_M.txt",
             sep = "\t", row.names = TRUE, col.names = TRUE, quote = FALSE)
 DESeq_coldata_matrix_R <- as.matrix(DESeq_coldata_df_R)
-write.table(DESeq_coldata_matrix_R, file = "/home/joonho345/3_RNA/RNA_Animal/03.DESeq_2/DESeq_coldata_2_R.txt",
+write.table(DESeq_coldata_matrix_R, file = "/home/joonho345/1_Epilepsy_RNA/RNA_Animal/05.DESeq/DESeq_coldata_3_R.txt",
             sep = "\t", row.names = TRUE, col.names = TRUE, quote = FALSE)
 
 
 ######################################################################
 #### matrix -> Total 349 Samples####
 # Define the path to your files and list all .htseq.count.txt files
-path <- "/data/project/HS/RNA_Animal/02.Quantification/01.HTseq/"
+path <- "/data/project/1_Epilepsy_RNA/RNA_Animal/02.Quantification/01.HTseq/"
 files <- list.files(path, pattern = "*.htseq.count.txt", full.names = TRUE)
 files_M <- files[basename(files) %in% paste0(rownames(coldata_df_M), ".htseq.count.txt")]
 files_R <- files[basename(files) %in% paste0(rownames(coldata_df_R), ".htseq.count.txt")]
@@ -87,10 +71,10 @@ merged_df_R <- merged_df_R[, rownames(coldata_df_R)]
 
 #### Gene_id: Save the matrices and coldata ####
 merged_matrix_M <- as.matrix(merged_df_M)
-write.table(merged_matrix_M, file = "/home/joonho345/3_RNA/RNA_Animal/02.Quantification/merged_matrix_id_M.txt", 
+write.table(merged_matrix_M, file = "/home/joonho345/1_Epilepsy_RNA/RNA_Animal/02.Quantification/merged_matrix_id_M.txt", 
             sep = "\t", row.names = TRUE, col.names = TRUE, quote = FALSE)
 merged_matrix_R <- as.matrix(merged_df_R)
-write.table(merged_matrix_R, file = "/home/joonho345/3_RNA/RNA_Animal/02.Quantification/merged_matrix_id_R.txt", 
+write.table(merged_matrix_R, file = "/home/joonho345/1_Epilepsy_RNA/RNA_Animal/02.Quantification/merged_matrix_id_R.txt", 
             sep = "\t", row.names = TRUE, col.names = TRUE, quote = FALSE)
 
 
@@ -114,10 +98,10 @@ merged_df_R <- merged_df_R %>% dplyr::select(-gene_names_R)
 #### Gene_name: Save the matrices and coldata ####
 # Musmusculus
 merged_matrix_M <- as.matrix(merged_df_M)
-write.table(merged_matrix_M, file = "/home/joonho345/3_RNA/RNA_Animal/02.Quantification/merged_matrix_M.txt", 
+write.table(merged_matrix_M, file = "/home/joonho345/1_Epilepsy_RNA/RNA_Animal/02.Quantification/merged_matrix_M.txt", 
             sep = "\t", row.names = TRUE, col.names = TRUE, quote = FALSE)
 # Rattusnorvegicus
 merged_matrix_R <- as.matrix(merged_df_R)
-write.table(merged_matrix_R, file = "/home/joonho345/3_RNA/RNA_Animal/02.Quantification/merged_matrix_R.txt", 
+write.table(merged_matrix_R, file = "/home/joonho345/1_Epilepsy_RNA/RNA_Animal/02.Quantification/merged_matrix_R.txt", 
             sep = "\t", row.names = TRUE, col.names = TRUE, quote = FALSE)
 

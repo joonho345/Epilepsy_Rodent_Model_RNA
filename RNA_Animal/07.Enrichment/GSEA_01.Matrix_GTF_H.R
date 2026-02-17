@@ -3,7 +3,7 @@ library(tidyr)
 
 ##################### MOUSE ##########################
 #### Create GTF Matrix ####
-gtf_path <- "/home/joonho345/resources/Reference/Mus_musculus.GRCm39.112.gtf"
+gtf_path <- "/data/resource/reference/mouse/Mus_musculus.GRCm39.112.gtf"
 gtf_table <- read.table(gtf_path, header = FALSE, skip = 5, sep = "\t", quote = "", comment.char = "")
 
 gtf_table <- gtf_table %>% dplyr::select(-c(V1, V4, V5, V6, V7, V8))
@@ -34,7 +34,7 @@ gtf_table <- gtf_table %>% filter(!is.na(gene_name))
 
 
 #### Expression matrix ####
-adjusted_TPM_df <- read.table("/home/joonho345/3_RNA/RNA_Animal/04.Normalization/adjusted_merged_matrix_TPM_M.txt", 
+adjusted_TPM_df <- read.table("/home/joonho345/1_Epilepsy_RNA/RNA_Animal/03.Normalization/adjusted_merged_matrix_TPM_M.txt", 
                               sep = "\t", header = TRUE, row.names = 1)
 adjusted_TPM_id_df <- adjusted_TPM_df
 
@@ -48,13 +48,13 @@ adjusted_TPM_id_df <- adjusted_TPM_id_df %>% dplyr::select(-gene_id)
 
 # SAVE expression matrix with gene id
 adjusted_TPM_id_matrix <- as.matrix(adjusted_TPM_id_df)
-write.table(adjusted_TPM_id_matrix, file = "/home/joonho345/3_RNA/RNA_Animal/05.Enrichment/GSEA_01.Matrix_GTF/adjusted_merged_matrix_id_TPM_M.txt", 
+write.table(adjusted_TPM_id_matrix, file = "/home/joonho345/1_Epilepsy_RNA/RNA_Animal/08.Enrichment/GSEA_01.Matrix_GTF/adjusted_merged_matrix_id_TPM_M.txt", 
             sep = "\t", row.names = TRUE, col.names = TRUE, quote = FALSE)
 
 
 ##################### RAT ##########################
 #### Create GTF Matrix ####
-gtf_path <- "/home/joonho345/resources/Reference/Rattus_norvegicus.mRatBN7.2.112.gtf"
+gtf_path <- "/data/resource/reference/mouse/Rattus_norvegicus.mRatBN7.2.112.gtf"
 gtf_table <- read.table(gtf_path, header = FALSE, skip = 5, sep = "\t", quote = "", comment.char = "")
 
 gtf_table <- gtf_table %>% dplyr::select(-c(V1, V4, V5, V6, V7, V8))
@@ -85,7 +85,7 @@ gtf_table <- gtf_table %>% filter(!is.na(gene_name))
 
 
 #### Expression matrix ####
-adjusted_TPM_df <- read.table("/home/joonho345/3_RNA/RNA_Animal/04.Normalization/adjusted_merged_matrix_TPM_R.txt", 
+adjusted_TPM_df <- read.table("/home/joonho345/1_Epilepsy_RNA/RNA_Animal/03.Normalization/adjusted_merged_matrix_TPM_R.txt", 
                               sep = "\t", header = TRUE, row.names = 1)
 adjusted_TPM_id_df <- adjusted_TPM_df
 
@@ -99,6 +99,6 @@ adjusted_TPM_id_df <- adjusted_TPM_id_df %>% dplyr::select(-gene_id)
 
 # SAVE expression matrix with gene id
 adjusted_TPM_id_matrix <- as.matrix(adjusted_TPM_id_df)
-write.table(adjusted_TPM_id_matrix, file = "/home/joonho345/3_RNA/RNA_Animal/05.Enrichment/GSEA_01.Matrix_GTF/adjusted_merged_matrix_id_TPM_R.txt", 
+write.table(adjusted_TPM_id_matrix, file = "/home/joonho345/1_Epilepsy_RNA/RNA_Animal/08.Enrichment/GSEA_01.Matrix_GTF/adjusted_merged_matrix_id_TPM_R.txt", 
             sep = "\t", row.names = TRUE, col.names = TRUE, quote = FALSE)
 
